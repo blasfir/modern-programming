@@ -1,3 +1,4 @@
+import sys
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 def decrypt(text):
     result = ""
@@ -11,4 +12,17 @@ def decrypt(text):
             result += char
         else:
             raise ValueError("Текст містить недопустимі символи. Дозволені лише латинські літери та пробіли.")
-    return result   
+    return result 
+  
+def main():
+    try:
+        input_text = input("Введіть текст:")
+        result = decrypt(input_text)
+        print(result)
+        sys.exit(0)
+    except Exception as e:
+        print(f"Помилка: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
