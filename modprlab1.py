@@ -1,13 +1,13 @@
 import sys
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-def decrypt(text):
+def rot_13(text):
     result = ""
     for char in text:
         if char.isalpha():
             if char.islower():
-                result += alphabet[(alphabet.index(char) - 13) % 26]
+                result += alphabet[(alphabet.index(char) + 13) % 26]
             else:
-                result += alphabet[(alphabet.index(char.lower()) - 13) % 26].upper()
+                result += alphabet[(alphabet.index(char.lower()) + 13) % 26].upper()
         elif char.isspace():
             result += char
         else:
@@ -17,7 +17,7 @@ def decrypt(text):
 def main():
     try:
         input_text = input("Введіть текст:")
-        result = decrypt(input_text)
+        result = rot_13(input_text)
         print(result)
         sys.exit(0)
     except Exception as e:
