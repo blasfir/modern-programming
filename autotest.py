@@ -1,5 +1,5 @@
 import unittest
-from modprlab1 import rot_13
+from rot13 import rot_13
 class rot13testcase(unittest.TestCase):
     def test_lowercase(self):
         self.assertEqual(rot_13("hello world"), "uryyb jbeyq")
